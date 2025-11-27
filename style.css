@@ -206,3 +206,28 @@ button:not(:disabled) {
 button:not(:disabled):hover {
     filter: brightness(1.2);
 }
+
+
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        height: auto; 
+        overflow-y: auto;
+    }
+
+    .painel-controle {
+        padding: 0 10px;
+    }
+
+    .completo, .incompleto {
+        height: 300px; 
+        width: 100%;
+    }
+    
+    .intersecao {
+        width: 100%;
+        height: 80px;
+        flex-direction: row; 
+        order: -1; 
+    }
+}

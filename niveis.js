@@ -284,7 +284,7 @@ const listaDeNiveis = [
 #completoCSS {
     display: flex;
     flex-wrap: wrap;
-    width: 250px; /* Força a quebra visual */
+    width: 250px; 
     gap: 10px;
     padding: 20px;
     align-content: flex-start;
@@ -311,10 +311,8 @@ const listaDeNiveis = [
         textoInicialJogador: `
 #incompletoCSS {
     display: flex;
-    /* Quebre a linha aqui */
     flex-wrap: ;
-    
-    width: 250px; /* Limite de largura */
+    width: 250px; 
     gap: 10px;
     padding: 20px;
     align-content: flex-start;
@@ -387,7 +385,6 @@ const listaDeNiveis = [
 #completoCSS {
     display: flex;
     align-items: flex-start;
-    /* ... */
 }
 #completoCSS .amarelo {
     align-self: ;
@@ -410,7 +407,6 @@ const listaDeNiveis = [
     padding: 20px;
 }
 
-/* Note o ID antes da classe */
 #incompletoCSS .amarelo {
     align-self: ;
 }`
@@ -457,9 +453,386 @@ const listaDeNiveis = [
     align-items: center;
 }
 
-/* Use o seletor completo */
+
 #incompletoCSS .vermelho {
     order: ;
+}`
+    },
+
+// --- NÍVEL 11 ---
+    {
+        id: 11,
+        titulo: "Nível 11: O Conquistador de Espaço",
+        instrucao: "Faça o item do meio crescer para ocupar todo o espaço vazio que sobra.",
+        htmlInterno: `
+            <div class="quadrado" style="background:#b2bec3;">Fixo</div>
+            <div class="quadrado crescer" style="background:#0984e3; width: auto;">Crescer</div>
+            <div class="quadrado" style="background:#b2bec3;">Fixo</div>
+        `,
+        cssGabaritoReal: `
+#completoCSS {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    align-items: center;
+}
+#completoCSS .crescer {
+    flex-grow: 1;
+}`,
+        textoGabaritoVisivel: `
+#completoCSS { ... }
+
+#completoCSS .crescer {
+    flex-grow: ; 
+}`,
+        textoGabaritoCompleto: `
+#completoCSS { ... }
+
+#completoCSS .crescer {
+    flex-grow: 1;
+}`,
+        validacao: "flex-grow: 1",
+        textoInicialJogador: `
+#incompletoCSS {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    align-items: center;
+}
+
+#incompletoCSS .crescer {
+    flex-grow: ;
+}`
+    },
+
+    // --- NÍVEL 12 ---
+    {
+        id: 12,
+        titulo: "Nível 12: Crescimento Proporcional",
+        instrucao: "Os dois itens devem crescer, mas o azul deve crescer DUAS vezes mais rápido que o cinza.",
+        htmlInterno: `
+            <div class="quadrado item1" style="background:#b2bec3; width: 50px;">1x</div>
+            <div class="quadrado item2" style="background:#0984e3; width: 50px;">2x</div>
+        `,
+        cssGabaritoReal: `
+#completoCSS {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    align-items: center;
+}
+#completoCSS .item1 { flex-grow: 1; }
+#completoCSS .item2 { flex-grow: 2; }
+`,
+        textoGabaritoVisivel: `
+#completoCSS .item1 { flex-grow: 1; }
+
+#completoCSS .item2 { 
+    flex-grow: ; 
+}`,
+        textoGabaritoCompleto: `
+#completoCSS .item1 { flex-grow: 1; }
+
+#completoCSS .item2 { 
+    flex-grow: 2; 
+}`,
+        validacao: "flex-grow: 2",
+        textoInicialJogador: `
+#incompletoCSS {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    align-items: center;
+}
+
+#incompletoCSS .item1 {
+    flex-grow: 1;
+}
+
+#incompletoCSS .item2 {
+    flex-grow: ;
+}`
+    },
+
+    // --- NÍVEL 13 ---
+    {
+        id: 13,
+        titulo: "Nível 13: Alinhando o Bloco",
+        instrucao: "Quando os itens quebram linha (wrap), sobrará espaço vertical. Use align-content.",
+        htmlInterno: `
+            <div class="quadrado" style="background:#fab1a0;">1</div>
+            <div class="quadrado" style="background:#fab1a0;">2</div>
+            <div class="quadrado" style="background:#fab1a0;">3</div>
+            <div class="quadrado" style="background:#fab1a0;">4</div>
+            <div class="quadrado" style="background:#fab1a0;">5</div>
+            <div class="quadrado" style="background:#fab1a0;">6</div>
+        `,
+        cssGabaritoReal: `
+#completoCSS {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    height: 100%;
+}`,
+        textoGabaritoVisivel: `
+#completoCSS {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: ; 
+    ...
+}`,
+        textoGabaritoCompleto: `
+#completoCSS {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    ...
+}`,
+        validacao: "align-content: center",
+        textoInicialJogador: `
+#incompletoCSS {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    height: 100%;
+    align-content: ;
+}`
+    },
+
+    // --- NÍVEL 14 ---
+    // --- NÍVEL 14 (CORRIGIDO) ---
+    {
+        id: 14,
+        titulo: "Nível 14: O Atalho (Shorthand)",
+        instrucao: "Use a propriedade shorthand flex-flow para definir a direção.",
+        htmlInterno: `
+            <div class="quadrado" style="background:#00b894;">1</div>
+            <div class="quadrado" style="background:#00b894;">2</div>
+            <div class="quadrado" style="background:#00b894;">3</div>
+            <div class="quadrado" style="background:#00b894;">4</div>
+            <div class="quadrado" style="background:#00b894;">5</div>
+        `,
+        cssGabaritoReal: `
+#completoCSS {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    gap: 10px;
+    padding: 20px;
+    align-content: flex-start;
+}`,
+        textoGabaritoVisivel: `
+#completoCSS {
+    display: flex;
+    flex-flow: ; 
+    ...
+}`,
+        textoGabaritoCompleto: `
+#completoCSS {
+    display: flex;
+    flex-flow: column;
+    ...
+}`,
+        validacao: "flex-flow: column",
+        textoInicialJogador: `
+#incompletoCSS {
+    display: flex;
+    flex-flow: ;
+    height: 100%;
+    gap: 10px;
+    padding: 20px;
+    align-content: flex-start;
+}`
+    },
+
+    // --- NÍVEL 15 ---
+    {
+        id: 15,
+        titulo: "Nível 15: O Truque da Margem",
+        instrucao: "Use margin-left: .",
+        htmlInterno: `
+            <div class="quadrado" style="background:#636e72;">Logo</div>
+            <div class="quadrado" style="background:#636e72;">Link</div>
+            <div class="quadrado direita" style="background:#55efc4; color:#333;">Login</div>
+        `,
+        cssGabaritoReal: `
+#completoCSS {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+}
+#completoCSS .direita {
+    margin-left: auto;
+}`,
+        textoGabaritoVisivel: `
+#completoCSS { ... }
+
+#completoCSS .direita {
+    margin-left: ;
+}`,
+        textoGabaritoCompleto: `
+#completoCSS { ... }
+
+#completoCSS .direita {
+    margin-left: auto;
+}`,
+        validacao: "margin-left: auto",
+        textoInicialJogador: `
+#incompletoCSS {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+}
+
+#incompletoCSS .direita {
+    margin-left: ;
+}`
+    },
+    // --- NÍVEL 17 ---
+    {
+        id: 16,
+        titulo: "Nível 16: Tamanho Base",
+        instrucao: "Ignore o width! Use flex-basis para definir o tamanho que deve ser ocupado.",
+        htmlInterno: `
+            <div class="quadrado alvo" style="background:#6c5ce7;">60%</div>
+            <div class="quadrado" style="background:#a29bfe; flex-grow: 1;">Resto</div>
+        `,
+        cssGabaritoReal: `
+#completoCSS {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+}
+#completoCSS .alvo {
+    flex-basis: 60%;
+}`,
+        textoGabaritoVisivel: `
+#completoCSS { ... }
+
+#completoCSS .alvo {
+    flex-basis: ; 
+}`,
+        textoGabaritoCompleto: `
+#completoCSS { ... }
+
+#completoCSS .alvo {
+    flex-basis: 60%;
+}`,
+        validacao: "flex-basis: 60%",
+        textoInicialJogador: `
+#incompletoCSS {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+}
+
+#incompletoCSS .alvo {
+    flex-basis: ;
+}`
+    },
+
+    // --- NÍVEL 17 ---
+    {
+        id: 17,
+        titulo: "Nível 17: O Super Atalho (Shorthand)",
+        instrucao: "Crie uma Sidebar fixa! Use a propriedade 'flex' para definir. dica : (numero1 numero2 100px).",
+        htmlInterno: `
+            <div class="quadrado sidebar" style="background:#2d3436;">Menu</div>
+            <div class="quadrado" style="background:#b2bec3; flex-grow: 1;">Conteúdo</div>
+        `,
+        cssGabaritoReal: `
+#completoCSS {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+    padding: 10px;
+    gap: 10px;
+}
+#completoCSS .sidebar {
+    flex: 0 0 100px;
+}`,
+        textoGabaritoVisivel: `
+#completoCSS .sidebar {
+    flex: ; 
+}`,
+        textoGabaritoCompleto: `
+#completoCSS .sidebar {
+    flex: 0 0 100px;
+}`,
+        validacao: "flex: 0 0 100px",
+        textoInicialJogador: `
+#incompletoCSS {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+    padding: 10px;
+    gap: 10px;
+}
+
+#incompletoCSS .sidebar {
+    flex: ;
+}`
+    },
+    // --- NÍVEL 18 ---
+    {
+        id: 18,
+        titulo: "Nível 18: O Rodapé Fixo (Layout Vertical)",
+        instrucao: "Temos um layout de coluna. Use flex: ; no conteúdo central (.main) para que ele ocupe todo o espaço e empurre o rodapé para o fundo.",
+        htmlInterno: `
+            <div class="quadrado" style="background:#636e72; height: 30px; width: 100%;">Topo</div>
+            <div class="quadrado main" style="background:#dfe6e9; width: 100%; color:#333;">Conteúdo</div>
+            <div class="quadrado" style="background:#2d3436; height: 30px; width: 100%;">Rodapé</div>
+        `,
+        cssGabaritoReal: `
+#completoCSS {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 10px;
+    gap: 5px;
+}
+#completoCSS .main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}`,
+        textoGabaritoVisivel: `
+#completoCSS { flex-direction: column... }
+
+#completoCSS .main {
+    flex: ;
+}`,
+        textoGabaritoCompleto: `
+#completoCSS { ... }
+
+#completoCSS .main {
+    flex: 1;
+}`,
+        validacao: "flex: 1",
+        textoInicialJogador: `
+#incompletoCSS {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 10px;
+    gap: 5px;
+}
+
+#incompletoCSS .main {
+    flex: ;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
 }`
     }
 
